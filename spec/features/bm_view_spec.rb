@@ -1,4 +1,4 @@
-describe 'BookmarkManager' do
+describe BookmarkManager do
   feature 'View bookmarks' do
     scenario 'User can view bookmarks' do
       visit('/')

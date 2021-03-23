@@ -1,2 +1,10 @@
-"Bookmarks"
-<%= Bookmark.all %>
+Bookmarks
+<ul>
+<% Bookmark.all.each do |url| %>
+<li><%=url%></li>
+<%end%>
+</ul>
+<form action='/add' method='post'>
+  <input type='text' name='url'>
+  <input type='submit' value='Add'>
+</form>
