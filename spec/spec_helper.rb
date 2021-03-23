@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'pg'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
