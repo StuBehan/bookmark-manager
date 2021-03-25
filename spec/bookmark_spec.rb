@@ -1,6 +1,10 @@
 require 'bookmark'
 
 describe Bookmark do
+  before do
+    DatabaseConnection.check_env
+  end
+
   describe '.all' do
     it 'returns a list of bookmarks' do
       expect(Bookmark.all.last).to include( :title => 'Google', :url => 'http://www.google.com' )
