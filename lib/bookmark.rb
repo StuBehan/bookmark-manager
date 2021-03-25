@@ -19,6 +19,11 @@ class Bookmark
     self.check_env.exec "DELETE FROM bookmarks WHERE id = #{id};"
   end
 
+  def self.update(id, new_title, new_url)
+    self.check_env.exec "UPDATE bookmarks SET title = '#{new_title}' WHERE id = '#{id}';" unless new_title == ""
+    self.check_env.exec "UPDATE bookmarks SET url = '#{new_url}' WHERE id = '#{id}';" unless new_url == ""
+  end
+
   private
 
   def self.check_env
