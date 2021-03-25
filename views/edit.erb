@@ -1,0 +1,16 @@
+Edit Bookmarks
+
+<form id='delete' action='/edit' method='post'>
+
+<ul>
+<% Bookmark.all.each do |hash| %>
+<li><a href='<%=hash[:url]%>'><%=hash[:title]%></a>
+  <input form='delete' type='submit' name='<%=hash[:id]%>' value='X'>
+</li>
+<%end%>
+</ul>
+
+</form>
+<form action='/bookmarks' method='get'>
+  <input type='submit' value='Return to Bookmarks'>
+</form>

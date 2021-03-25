@@ -16,5 +16,14 @@ class BookmarkManager < Sinatra::Base
     redirect '/bookmarks'
   end
 
+  get '/edit' do
+    erb :edit
+  end
+
+  post '/edit' do
+    Bookmark.delete(params.key('X'))
+    redirect '/edit'
+  end
+
   run! if app_file == $0
 end

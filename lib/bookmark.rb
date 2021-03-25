@@ -6,13 +6,17 @@ class Bookmark
     @array = []
     rs = self.check_env.exec "SELECT * FROM bookmarks"
     rs.each do |row|
-    @array <<  { :url => row['url'], :title => row['title'] }
+    @array <<  { :id => row['id'], :url => row['url'], :title => row['title'] }
     end
     return @array
   end
 
   def self.add(new_url, new_title)
-    rs = self.check_env.exec "INSERT INTO bookmarks (url, title) VALUES ('#{new_url}', '#{new_title}');"
+    self.check_env.exec "INSERT INTO bookmarks (url, title) VALUES ('#{new_url}', '#{new_title}');"
+  end
+
+  def self.delete(id)
+    self.check_env.exec "DELETE FROM bookmarks WHERE id = #{id};"
   end
 
   private
